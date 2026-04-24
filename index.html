@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anvil Period Tracker - Privacy and Support</title>
+    <meta name="description" content="Privacy policy, support contact, and terms for Anvil Period Tracker.">
+    <style>
+        :root {
+            --bg: #050505;
+            --panel: #111111;
+            --panel-soft: #171717;
+            --text: #f4f4f4;
+            --muted: #b9b9b9;
+            --line: #313131;
+            --accent: #ff334e;
+            --accent-soft: rgba(255, 51, 78, 0.16);
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(255, 51, 78, 0.14), transparent 28%),
+                linear-gradient(180deg, #090909 0%, #030303 100%);
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        a {
+            color: var(--text);
+        }
+
+        .wrap {
+            width: min(960px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            padding: 56px 0 28px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: #ffd7dc;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 14px;
+            font-size: clamp(32px, 5vw, 54px);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .lead {
+            max-width: 720px;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .meta {
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 28px 0 10px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            padding: 11px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+        }
+
+        main {
+            padding: 12px 0 56px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 26px;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            margin: 20px 0 8px;
+            font-size: 17px;
+            color: #ffd9de;
+        }
+
+        p, li {
+            color: var(--muted);
+        }
+
+        ul {
+            margin: 10px 0 0 18px;
+            padding: 0;
+        }
+
+        .two-up {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: var(--panel-soft);
+            text-decoration: none;
+        }
+
+        .footer {
+            padding: 0 0 40px;
+            color: #8e8e8e;
+            font-size: 13px;
+        }
+
+        code {
+            color: #ffffff;
+            background: #151515;
+            border: 1px solid #2d2d2d;
+            border-radius: 8px;
+            padding: 2px 7px;
+        }
+
+        @media (max-width: 720px) {
+            .hero {
+                padding-top: 34px;
+            }
+
+            .card {
+                padding: 18px;
+                border-radius: 18px;
+            }
+
+            .two-up {
+                grid-template-columns: 1fr;
+            }
+
+            .lead {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="wrap">
+            <div class="eyebrow">Anvil Period Tracker</div>
+            <h1>Privacy Policy and Support</h1>
+            <p class="lead">
+                This page can be used as the hosted privacy policy and support page for Anvil Period Tracker.
+                It covers privacy, ads, contact details, and the general terms shown in the app.
+            </p>
+            <div class="meta">Last updated: 24 April 2026</div>
+            <nav class="nav" aria-label="Page sections">
+                <a href="#privacy">Privacy</a>
+                <a href="#support">Support</a>
+                <a href="#terms">Terms</a>
+                <a href="#safety">Health Notice</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrap grid">
+            <section class="card" id="privacy">
+                <h2>Privacy Policy</h2>
+                <p>
+                    Anvil Period Tracker is designed as an offline period tracking app. The app stores your entries on your device.
+                    It does not use Firebase, cloud sync, or third-party analytics SDKs.
+                </p>
+
+                <div class="two-up">
+                    <div>
+                        <h3>What the app stores</h3>
+                        <ul>
+                            <li>Period tracking entries, symptoms, sleep details, and activity selections you save in the app.</li>
+                            <li>Cycle settings and local app preferences needed to keep the app working.</li>
+                            <li>CSV backups only when you choose to export them.</li>
+                        </ul>
+
+                        <h3>Where data is stored</h3>
+                        <ul>
+                            <li>Saved locally inside app storage on the device.</li>
+                            <li>Encrypted app storage is used when supported by the device.</li>
+                            <li>Device backup and cleartext traffic are disabled in the Android app configuration.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>What the app does not do</h3>
+                        <ul>
+                            <li>No account creation.</li>
+                            <li>No cloud sync.</li>
+                            <li>No Firebase services.</li>
+                            <li>No third-party analytics or behavior tracking SDKs.</li>
+                        </ul>
+
+                        <h3>Ads</h3>
+                        <ul>
+                            <li>The app uses Google Mobile Ads to show one pre-muted interstitial ad about 5 seconds after opening.</li>
+                            <li>The interstitial is limited to no more than once every 7 days.</li>
+                            <li>Ad loading may involve Google services and ad-related device information as part of Google Mobile Ads delivery.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Permissions and device behavior</h3>
+                <ul>
+                    <li>Notifications may be requested so the app can send a daily reminder at 8:00 PM.</li>
+                    <li>Screenshots are intentionally allowed.</li>
+                    <li>You control CSV import and export manually.</li>
+                </ul>
+            </section>
+
+            <section class="card" id="support">
+                <h2>Support</h2>
+                <p>
+                    For help with the app, backups, restore, or bug reports, contact the support address below.
+                </p>
+
+                <a class="contact" href="mailto:anviltechsupport@gmail.com">anviltechsupport@gmail.com</a>
+
+                <h3>Helpful details to include</h3>
+                <ul>
+                    <li>Your device model and Android version.</li>
+                    <li>What screen you were on when the problem happened.</li>
+                    <li>Whether you were importing CSV, using notifications, or viewing the history graph.</li>
+                </ul>
+
+                <h3>Support scope</h3>
+                <ul>
+                    <li>App help, bug reports, CSV backup questions, and basic setup issues.</li>
+                    <li>General feature clarification.</li>
+                    <li>Not medical diagnosis or emergency care.</li>
+                </ul>
+            </section>
+
+            <section class="card" id="terms">
+                <h2>Terms and App Notice</h2>
+                <p>
+                    Anvil Period Tracker is provided for personal cycle tracking and general education.
+                    It is not a medical device, diagnosis tool, or emergency service.
+                </p>
+
+                <ul>
+                    <li>Use of the app is at your own discretion.</li>
+                    <li>You are responsible for reviewing exported CSV files and managing your own backups.</li>
+                    <li>The app is intended to help with personal record keeping, not to replace professional medical advice.</li>
+                    <li>Use must follow your local laws, platform rules, and clinic guidance where relevant.</li>
+                </ul>
+
+                <p>
+                    By continuing to use the app after accepting the in-app notice, you accept the app terms,
+                    privacy summary, and ad disclosure.
+                </p>
+            </section>
+
+            <section class="card" id="safety">
+                <h2>Health Notice</h2>
+                <p>
+                    The educational content inside the app gives a general overview of menstrual phases and common symptoms.
+                    Bodies vary, and not everyone will have the same cycle length or experience the same symptoms.
+                </p>
+
+                <ul>
+                    <li>Seek medical care for severe pain, very heavy bleeding, fainting, or sudden major cycle changes.</li>
+                    <li>Ask a clinician if cycles stay shorter than 24 days or longer than 38 days over time.</li>
+                    <li>Ask a clinician if periods stop for 90 days when not pregnant, breastfeeding, or under direct medical guidance.</li>
+                </ul>
+
+                <p>
+                    For Play Store listing use, this same page can act as:
+                    <code>Privacy Policy URL</code>
+                    and
+                    <code>Support URL</code>.
+                    If you want separate links, you can also use the anchor sections
+                    <code>#privacy</code>
+                    and
+                    <code>#support</code>.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            Anvil Period Tracker | Offline tracking | Support: anviltechsupport@gmail.com
+        </div>
+    </footer>
+</body>
+</html>
