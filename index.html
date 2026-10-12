@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anvil Period Tracker - Privacy and Support</title>
-    <meta name="description" content="Privacy policy, support contact, and terms for Anvil Period Tracker.">
+    <title>Free Periods Tracker - Privacy and Support</title>
+    <meta name="description" content="Privacy policy, support contact, and terms for Free Periods Tracker.">
     <style>
         :root {
             --bg: #050505;
@@ -46,7 +46,7 @@
         }
 
         .hero {
-            padding: 56px 0 28px;
+            padding: 62px 0 28px;
         }
 
         .eyebrow {
@@ -167,7 +167,7 @@
 
         @media (max-width: 720px) {
             .hero {
-                padding-top: 34px;
+                padding-top: 40px;
             }
 
             .card {
@@ -188,13 +188,13 @@
 <body>
     <header class="hero">
         <div class="wrap">
-            <div class="eyebrow">Anvil Period Tracker</div>
+            <div class="eyebrow">Free Periods Tracker</div>
             <h1>Privacy Policy and Support</h1>
             <p class="lead">
-                This page can be used as the hosted privacy policy and support page for Anvil Period Tracker.
-                It covers privacy, ads, contact details, and the general terms shown in the app.
+                This is the privacy policy and support page for Free Periods Tracker.
+                It covers privacy, optional local-first backup and restore through the user’s own private Google Drive appDataFolder, banner advertising, advertising privacy choices, contact details, and the general terms shown in the app.
             </p>
-            <div class="meta">Last updated: 24 April 2026</div>
+            <div class="meta">Last updated: 12 October 2026</div>
             <nav class="nav" aria-label="Page sections">
                 <a href="#privacy">Privacy</a>
                 <a href="#support">Support</a>
@@ -209,8 +209,8 @@
             <section class="card" id="privacy">
                 <h2>Privacy Policy</h2>
                 <p>
-                    Anvil Period Tracker is designed as an offline period tracking app. The app stores your entries on your device.
-                    It does not use Firebase, cloud sync, or third-party analytics SDKs.
+                    Free Periods Tracker is designed as an offline period tracking app. The app stores your entries on your device.
+                    It does not use Firebase, developer-managed cloud sync, or third-party analytics SDKs for personal tracker records.
                 </p>
 
                 <div class="two-up">
@@ -219,14 +219,24 @@
                         <ul>
                             <li>Period tracking entries, symptoms, sleep details, and activity selections you save in the app.</li>
                             <li>Cycle settings and local app preferences needed to keep the app working.</li>
-                            <li>CSV backups only when you choose to export them.</li>
+                            <li>The email address of the Google account you select for optional Drive backup. It is stored in app-private storage to show the connection and is removed when you disconnect Drive.</li>
+                            <li>One optional private JSON backup file in your own Google Drive appDataFolder when you connect Google Drive backup.</li>
                         </ul>
 
                         <h3>Where data is stored</h3>
                         <ul>
-                            <li>Saved locally inside app storage on the device.</li>
-                            <li>Encrypted app storage is used when supported by the device.</li>
+                            <li>Saved locally inside app storage on the device, using Room database for tracker records.</li>
+                            <li>Tracker records stay in Android app-private storage and are not written to shared device storage.</li>
                             <li>Device backup and cleartext traffic are disabled in the Android app configuration.</li>
+                        </ul>
+
+                        <h3>Retention and deletion</h3>
+                        <ul>
+                            <li>Entries remain on the device until you edit them, clear app data, or uninstall the app.</li>
+                            <li>The optional Google Drive backup remains in your private appDataFolder until you delete it or disconnect the app and later remove it yourself.</li>
+                            <li>The locally stored connected Google account email is removed when you disconnect Google Drive from the app.</li>
+                            <li>If Google Drive backup is connected and auto backup is on, the app may update that one private backup around 2:00 AM local time each day.</li>
+                            <li>The app developer does not keep a cloud copy of your cycle entries because the app does not sync them to developer servers.</li>
                         </ul>
                     </div>
 
@@ -234,32 +244,38 @@
                         <h3>What the app does not do</h3>
                         <ul>
                             <li>No account creation.</li>
-                            <li>No cloud sync.</li>
+                            <li>No developer-managed cloud sync.</li>
                             <li>No Firebase services.</li>
-                            <li>No third-party analytics or behavior tracking SDKs.</li>
+                            <li>No interstitial or other full-screen ads.</li>
+                            <li>No third-party analytics or behavior tracking SDKs for personal health tracker data.</li>
                         </ul>
 
-                        <h3>Ads</h3>
+                        <h3>Banner ads</h3>
                         <ul>
-                            <li>The app uses Google Mobile Ads to show one pre-muted interstitial ad about 5 seconds after opening.</li>
-                            <li>The interstitial is limited to no more than once every 7 days.</li>
-                            <li>Ad loading may involve Google services and ad-related device information as part of Google Mobile Ads delivery.</li>
+                            <li>The app displays Google Mobile Ads banners below the Tracker week bar and above the Cycle overview.</li>
+                            <li>The app does not display interstitial ads.</li>
+                            <li>Period tracking entries are never sent to or used for advertising.</li>
+                            <li>Google Mobile Ads may collect and share IP address, device and account identifiers, app interactions, and diagnostics for advertising, analytics, and fraud prevention.</li>
+                            <li>Where required, Google User Messaging Platform presents consent choices before banner requests. The app sends no tracker entries to Google Mobile Ads.</li>
                         </ul>
                     </div>
                 </div>
 
                 <h3>Permissions and device behavior</h3>
                 <ul>
-                    <li>Notifications may be requested so the app can send a daily reminder at 8:00 PM.</li>
+                    <li>Notification permission may be requested so the app can send the daily 8:00 PM reminder and Google Drive backup status notifications after nightly auto backup.</li>
+                    <li>Google Drive backup uses the limited <code>drive.appdata</code> scope only, so the app does not request full Google Drive access.</li>
+                    <li>The app does not request device storage permission and does not use a file picker or folder picker for backup and restore.</li>
+                    <li>On supported regulated regions, you can open the in-app <strong>Manage ad privacy</strong> option in About to revisit Google advertising consent choices.</li>
                     <li>Screenshots are intentionally allowed.</li>
-                    <li>You control CSV import and export manually.</li>
+                    <li>You can disconnect Google Drive from inside the app without deleting your local tracker data.</li>
                 </ul>
             </section>
 
             <section class="card" id="support">
                 <h2>Support</h2>
                 <p>
-                    For help with the app, backups, restore, or bug reports, contact the support address below.
+                    For help with the app, Google Drive backup or restore, or bug reports, contact the support address below.
                 </p>
 
                 <a class="contact" href="mailto:anviltechsupport@gmail.com">anviltechsupport@gmail.com</a>
@@ -268,12 +284,12 @@
                 <ul>
                     <li>Your device model and Android version.</li>
                     <li>What screen you were on when the problem happened.</li>
-                    <li>Whether you were importing CSV, using notifications, or viewing the history graph.</li>
+                    <li>Whether you were backing up, syncing, using notifications, or viewing the history graph.</li>
                 </ul>
 
                 <h3>Support scope</h3>
                 <ul>
-                    <li>App help, bug reports, CSV backup questions, and basic setup issues.</li>
+                    <li>App help, bug reports, backup or sync questions, and basic setup issues.</li>
                     <li>General feature clarification.</li>
                     <li>Not medical diagnosis or emergency care.</li>
                 </ul>
@@ -282,13 +298,14 @@
             <section class="card" id="terms">
                 <h2>Terms and App Notice</h2>
                 <p>
-                    Anvil Period Tracker is provided for personal cycle tracking and general education.
-                    It is not a medical device, diagnosis tool, or emergency service.
+                    Free Periods Tracker is provided for personal cycle tracking and general education.
+                    It is not a medical device and does not diagnose, treat, cure, or prevent any medical condition.
+                    It is not an emergency service.
                 </p>
 
                 <ul>
                     <li>Use of the app is at your own discretion.</li>
-                    <li>You are responsible for reviewing exported CSV files and managing your own backups.</li>
+                    <li>You are responsible for reviewing backup files and managing your own backups.</li>
                     <li>The app is intended to help with personal record keeping, not to replace professional medical advice.</li>
                     <li>Use must follow your local laws, platform rules, and clinic guidance where relevant.</li>
                 </ul>
@@ -328,8 +345,9 @@
 
     <footer class="footer">
         <div class="wrap">
-            Anvil Period Tracker | Offline tracking | Support: anviltechsupport@gmail.com
+            Free Periods Tracker | Offline tracking | Support: anviltechsupport@gmail.com
         </div>
     </footer>
 </body>
 </html>
+
