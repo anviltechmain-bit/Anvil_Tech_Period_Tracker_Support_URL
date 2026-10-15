@@ -194,7 +194,7 @@
                 This is the privacy policy and support page for Free Periods Tracker.
                 It covers privacy, optional local-first backup and restore through the user’s own private Google Drive appDataFolder, banner advertising, advertising privacy choices, contact details, and the general terms shown in the app.
             </p>
-            <div class="meta">Last updated: 12 October 2026</div>
+            <div class="meta">Last updated: 15 October 2026</div>
             <nav class="nav" aria-label="Page sections">
                 <a href="#privacy">Privacy</a>
                 <a href="#support">Support</a>
@@ -228,14 +228,15 @@
                             <li>Saved locally inside app storage on the device, using Room database for tracker records.</li>
                             <li>Tracker records stay in Android app-private storage and are not written to shared device storage.</li>
                             <li>Device backup and cleartext traffic are disabled in the Android app configuration.</li>
+                            <li>Before uploading, the app stages one JSON snapshot in app-private, backup-excluded storage. It is replaced by the next snapshot and removed on disconnect, clear app data, or uninstall.</li>
                         </ul>
 
                         <h3>Retention and deletion</h3>
                         <ul>
-                            <li>Entries remain on the device until you edit them, clear app data, or uninstall the app.</li>
-                            <li>The optional Google Drive backup remains in your private appDataFolder until you delete it or disconnect the app and later remove it yourself.</li>
+                            <li>Entries remain on the device until you edit them, clear app data, or uninstall the app. Empty record identifiers and timestamps may remain to stop cleared details from returning during sync.</li>
+                            <li>Disconnecting stops this app from using Drive but does not delete the existing backup. You can remove its hidden app data using Google Drive settings. Older copies on another offline device can remain until that device next syncs; clearing this device does not remotely erase other devices.</li>
                             <li>The locally stored connected Google account email is removed when you disconnect Google Drive from the app.</li>
-                            <li>If Google Drive backup is connected and auto backup is on, the app may update that one private backup around 2:00 AM local time each day.</li>
+                            <li>Connecting opts into daily auto backup by default; you can switch it off. Work is scheduled around 2:00 AM local time with internet required, but Android may delay it. An existing backup is protected until you review and confirm a merge restore.</li>
                             <li>The app developer does not keep a cloud copy of your cycle entries because the app does not sync them to developer servers.</li>
                         </ul>
                     </div>
@@ -270,6 +271,19 @@
                     <li>Screenshots are intentionally allowed.</li>
                     <li>You can disconnect Google Drive from inside the app without deleting your local tracker data.</li>
                 </ul>
+                <h3>Private Drive backup and security</h3>
+                <p>
+                    Google Drive backup is optional; offline tracking does not require a Google account.
+                    One JSON snapshot, <code>anvil_free_periods_tracker_backup.json</code>, is stored in your own private appDataFolder.
+                    The developer does not receive, view, or store your backup or send tracker records to a developer server.
+                    Restore previews the backup and merges records without blindly wiping local data; newer matching records are kept.
+                </p>
+                <p>
+                    Google manages authorization. The app does not persist access or refresh tokens and does not log account emails or tracker records.
+                    Transfers use HTTPS and device files use Android app-private storage. The JSON backup is not separately end-to-end encrypted by this app;
+                    protection also depends on your device and Google account security. No storage permission, file picker, or full Drive access is requested.
+                    No security measure can guarantee protection against every compromise.
+                </p>
             </section>
 
             <section class="card" id="support">
@@ -350,4 +364,3 @@
     </footer>
 </body>
 </html>
-
