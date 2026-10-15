@@ -38,6 +38,7 @@
 
         a {
             color: var(--text);
+            overflow-wrap: anywhere;
         }
 
         .wrap {
@@ -128,7 +129,7 @@
             color: var(--muted);
         }
 
-        ul {
+        ul, ol {
             margin: 10px 0 0 18px;
             padding: 0;
         }
@@ -163,6 +164,7 @@
             border: 1px solid #2d2d2d;
             border-radius: 8px;
             padding: 2px 7px;
+            overflow-wrap: anywhere;
         }
 
         @media (max-width: 720px) {
@@ -191,10 +193,10 @@
             <div class="eyebrow">Free Periods Tracker</div>
             <h1>Privacy Policy and Support</h1>
             <p class="lead">
-                This is the privacy policy and support page for Free Periods Tracker.
-                It covers privacy, optional local-first backup and restore through the user’s own private Google Drive appDataFolder, banner advertising, advertising privacy choices, contact details, and the general terms shown in the app.
+                Track offline. Optionally back up to your own private Google Drive storage.
+                Read how records, backups, permissions, and banner ads work, or get help below.
             </p>
-            <div class="meta">Last updated: 15 October 2026</div>
+            <div class="meta">Last updated: 15 October 2026 | App notice version 11</div>
             <nav class="nav" aria-label="Page sections">
                 <a href="#privacy">Privacy</a>
                 <a href="#support">Support</a>
@@ -217,7 +219,7 @@
                     <div>
                         <h3>What the app stores</h3>
                         <ul>
-                            <li>Period tracking entries, symptoms, sleep details, and activity selections you save in the app.</li>
+                            <li>Period tracking entries, symptoms, sleep levels, and activity selections you save in the app. Older numeric sleep values are retained when upgrading.</li>
                             <li>Cycle settings and local app preferences needed to keep the app working.</li>
                             <li>The email address of the Google account you select for optional Drive backup. It is stored in app-private storage to show the connection and is removed when you disconnect Drive.</li>
                             <li>One optional private JSON backup file in your own Google Drive appDataFolder when you connect Google Drive backup.</li>
@@ -236,7 +238,7 @@
                             <li>Entries remain on the device until you edit them, clear app data, or uninstall the app. Empty record identifiers and timestamps may remain to stop cleared details from returning during sync.</li>
                             <li>Disconnecting stops this app from using Drive but does not delete the existing backup. You can remove its hidden app data using Google Drive settings. Older copies on another offline device can remain until that device next syncs; clearing this device does not remotely erase other devices.</li>
                             <li>The selected email is remembered if permission expires so you can reconnect. It is removed when you explicitly disconnect Google Drive from the app.</li>
-                            <li>Connecting opts into daily auto backup by default; you can switch it off. Work is scheduled around 2:00 AM local time with internet required, but Android may delay it. An existing backup is protected until you review and confirm a merge restore.</li>
+                            <li>Connecting enables daily auto backup by default, unless you previously turned it off. You can change this at any time. Work is scheduled around 2:00 AM local time with internet required, but Android may delay it. An existing backup is protected until you review and confirm a merge restore.</li>
                             <li>The app developer does not keep a cloud copy of your cycle entries because the app does not sync them to developer servers.</li>
                         </ul>
                     </div>
@@ -244,7 +246,7 @@
                     <div>
                         <h3>What the app does not do</h3>
                         <ul>
-                            <li>No account creation.</li>
+                            <li>No app account creation; an existing Google account is needed only for optional Drive backup.</li>
                             <li>No developer-managed cloud sync.</li>
                             <li>No Firebase services.</li>
                             <li>No interstitial or other full-screen ads.</li>
@@ -258,16 +260,17 @@
                             <li>Period tracking entries are never sent to or used for advertising.</li>
                             <li>Google Mobile Ads may collect and share IP address, device and account identifiers, app interactions, and diagnostics for advertising, analytics, and fraud prevention.</li>
                             <li>Where required, Google User Messaging Platform presents consent choices before banner requests. The app sends no tracker entries to Google Mobile Ads.</li>
+                            <li>Accepting app terms is not advertising consent. Read <a href="https://policies.google.com/privacy">Google's privacy policy</a> for Google's processing.</li>
                         </ul>
                     </div>
                 </div>
 
                 <h3>Permissions and device behavior</h3>
                 <ul>
-                    <li>Notification permission may be requested so the app can send the daily 8:00 PM reminder and Google Drive backup status notifications after nightly auto backup.</li>
+                    <li>Notifications are optional for the daily 8:00 PM reminder and automatic backup results. Alerts can appear on your lock screen; use Android notification settings to control visibility. Declining notifications does not block tracking or backup.</li>
                     <li>Google Drive backup uses the limited <code>drive.appdata</code> scope only, so the app does not request full Google Drive access.</li>
                     <li>The app does not request device storage permission and does not use a file picker or folder picker for backup and restore.</li>
-                    <li>On supported regulated regions, you can open the in-app <strong>Manage ad privacy</strong> option in About to revisit Google advertising consent choices.</li>
+                    <li>Where supported, open <strong>About &gt; Manage ad privacy</strong> to revisit Google advertising consent choices.</li>
                     <li>Screenshots are intentionally allowed.</li>
                     <li>You can disconnect Google Drive from inside the app without deleting your local tracker data.</li>
                 </ul>
@@ -275,14 +278,25 @@
                 <p>
                     Google Drive backup is optional; offline tracking does not require a Google account.
                     One JSON snapshot, <code>anvil_free_periods_tracker_backup.json</code>, is stored in your own private appDataFolder.
+                    It contains app/version metadata, record UUIDs and timestamps, tracker entries, and settings needed for restore.
+                    An older <code>app_backup.json</code> is adopted in place on a successful update rather than intentionally creating a second file.
                     The developer does not receive, view, or store your backup or send tracker records to a developer server.
-                    Restore previews the backup and merges records without blindly wiping local data; newer matching records are kept.
+                    Restore previews its date and record count before confirmation and merges without blindly wiping local data.
+                    Missing records are added; newer matching records are kept. Each later backup merges current cloud changes before uploading.
+                    Incomplete restores or detected conflicting cloud changes stop an upload instead of blindly overwriting the backup.
                 </p>
                 <p>
                     Google manages authorization. The app does not persist access or refresh tokens and does not log account emails or tracker records.
                     Transfers use HTTPS and device files use Android app-private storage. The JSON backup is not separately end-to-end encrypted by this app;
                     protection also depends on your device and Google account security. No storage permission, file picker, or full Drive access is requested.
                     No security measure can guarantee protection against every compromise.
+                </p>
+                <h3>Support correspondence</h3>
+                <p>
+                    If you email support, the developer receives the address and details you voluntarily send and uses them to respond.
+                    Do not include cycle records, passwords, or access tokens. Support correspondence is retained only as needed to
+                    handle the request and any applicable legal obligations; contact the same address with privacy or deletion requests.
+                    The developer cannot retrieve or erase your device records or private Drive backup for you.
                 </p>
             </section>
 
@@ -294,11 +308,51 @@
 
                 <a class="contact" href="mailto:anviltechsupport@gmail.com">anviltechsupport@gmail.com</a>
 
+                <h3>Connect and back up</h3>
+                <ol>
+                    <li>Open <strong>About &gt; Settings &gt; Cloud Backup</strong>, or the Cloud Backup card in History.</li>
+                    <li>Tap <strong>Connect Google Drive</strong>, choose your Google account, and allow the limited app-data access.</li>
+                    <li>If there is no backup, the app creates the first snapshot. If one exists, check its date and record count, then confirm a merge restore. Cancelling leaves it protected from upload.</li>
+                </ol>
+                <p>
+                    Future <strong>Back Up Now</strong> actions use the remembered account without account selection when permission is valid.
+                    There is no file or folder selection. Internet and working Google Play services are needed for Drive; offline tracking still works without them.
+                </p>
+
+                <h3>Restore and automatic backup</h3>
+                <p>
+                    Tap <strong>Restore</strong>, review the preview, and confirm the merge. The result shows imported, updated, skipped, and failed counts.
+                    Local-only entries stay. The same UUID is not imported twice; newer matching entries win.
+                    Independently created records for the same date combine their fields where possible instead of adding a duplicate day.
+                </p>
+                <p>
+                    Daily auto backup defaults on after connecting unless previously disabled. It runs best-effort around 2:00 AM local time,
+                    with internet required; Android can delay it. Successful automatic backups are at least 20 hours apart.
+                    Manual backup and restore each have a 5-minute cooldown. This is snapshot backup with merge, not instant or continuous sync.
+                    Results are notified only if notifications are allowed. Check <strong>Last backup</strong> before changing devices.
+                </p>
+
+                <h3>If Drive needs attention</h3>
+                <ul>
+                    <li>If permission expires, the status becomes <strong>Not connected</strong> but the account is remembered. Tap Connect or retry the action to authorize again. Background work never opens sign-in.</li>
+                    <li>For a network error, check internet access and retry. A failed attempt does not use the successful-operation cooldown.</li>
+                    <li>If an existing-backup review is required, use Restore and confirm the preview before trying to upload.</li>
+                    <li>A sign-in configuration error, including code 10, needs a developer fix for the app package and signing certificate. Report the app version and installation source; do not send Google credentials.</li>
+                    <li>If multiple backup files or a conflicting cloud update are reported, do not delete copies at random. Stop and contact support so existing data can be preserved.</li>
+                </ul>
+
+                <h3>Turn off or disconnect</h3>
+                <p>
+                    Turn <strong>Auto backup</strong> off to stop daily work. <strong>Disconnect</strong> asks for confirmation, removes the local account link
+                    and staging snapshot, and turns auto backup off. It does not remove the Google account from your phone, delete local tracker entries,
+                    or delete the Drive backup. To delete the cloud copy, remove this app's hidden app data through Google Drive settings.
+                </p>
+
                 <h3>Helpful details to include</h3>
                 <ul>
                     <li>Your device model and Android version.</li>
                     <li>What screen you were on when the problem happened.</li>
-                    <li>Whether you were backing up, syncing, using notifications, or viewing the history graph.</li>
+                    <li>The app version, installation source, and exact error shown. Do not send health entries, passwords, or access tokens.</li>
                 </ul>
 
                 <h3>Support scope</h3>
@@ -310,23 +364,36 @@
             </section>
 
             <section class="card" id="terms">
-                <h2>Terms and App Notice</h2>
+                <h2>Terms and Conditions</h2>
                 <p>
                     Free Periods Tracker is provided for personal cycle tracking and general education.
                     It is not a medical device and does not diagnose, treat, cure, or prevent any medical condition.
-                    It is not an emergency service.
+                    It is not an emergency service. Predictions are estimates, not contraception or medical advice.
+                    Seek professional care when needed.
                 </p>
 
                 <ul>
-                    <li>Use of the app is at your own discretion.</li>
-                    <li>You are responsible for reviewing backup files and managing your own backups.</li>
-                    <li>The app is intended to help with personal record keeping, not to replace professional medical advice.</li>
-                    <li>Use must follow your local laws, platform rules, and clinic guidance where relevant.</li>
+                    <li>Tracking remains available offline without a Google account. Google Drive backup is a separate, optional authorization.</li>
+                    <li>Connecting enables daily auto backup by default unless you previously switched it off. You can switch it off or disconnect at any time.</li>
+                    <li>An existing backup must be previewed and its merge confirmed before uploads are allowed. Restore adds missing records and keeps newer matching records, without blindly clearing local data.</li>
+                    <li>Automatic backup aims for 2:00 AM local time with internet required; Android may delay it. It is not continuous sync. Manual backup and restore each have a 5-minute cooldown, and automatic backups have a 20-hour success guard.</li>
+                    <li>Disconnect removes this app's local account link and staging snapshot, not local records or the Drive file. Clearing app data or uninstalling does not delete the Drive backup or copies on other devices.</li>
+                    <li>Check the last successful backup before changing devices. Backup availability and successful recovery are not guaranteed. Backups are not separately end-to-end encrypted by this app; protect your device and Google account.</li>
+                    <li>Banner advertising and its privacy choices are described in the <a href="#privacy">privacy policy</a>. Tracker records are never sent to the ad SDK.</li>
                 </ul>
 
                 <p>
-                    By continuing to use the app after accepting the in-app notice, you accept the app terms,
-                    privacy summary, and ad disclosure.
+                    Tapping <strong>Agree</strong> in the app accepts these terms and acknowledges the privacy, health, and advertising notices.
+                    It does not grant Google Drive access, notification permission, or advertising consent; those are separate choices.
+                    <strong>Disagree</strong> closes the app without deleting existing data. Full notices open only when selected;
+                    the terms remain available from About. Questions: <a href="mailto:anviltechsupport@gmail.com">anviltechsupport@gmail.com</a>.
+                </p>
+                <h3>Libraries and advertising</h3>
+                <p>
+                    The app uses Android, Kotlin, AndroidX, Material Components, Gson, OkHttp, Google Identity, Google Drive API,
+                    Google Mobile Ads, and Google User Messaging Platform under their applicable licenses and terms.
+                    Google services are provided by Google. Only banner ads appear on Tracker and Cycle; no interstitial ads are used.
+                    License and support questions can be sent to the support address above.
                 </p>
             </section>
 
@@ -343,16 +410,6 @@
                     <li>Ask a clinician if periods stop for 90 days when not pregnant, breastfeeding, or under direct medical guidance.</li>
                 </ul>
 
-                <p>
-                    For Play Store listing use, this same page can act as:
-                    <code>Privacy Policy URL</code>
-                    and
-                    <code>Support URL</code>.
-                    If you want separate links, you can also use the anchor sections
-                    <code>#privacy</code>
-                    and
-                    <code>#support</code>.
-                </p>
             </section>
         </div>
     </main>
